@@ -3,3 +3,4 @@ __pycache__/
 encodings.pkl
 uploads/
 output/
+reference_faces/
