@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+encodings.pkl
+uploads/
+output/
+reference_faces/
+venv/
