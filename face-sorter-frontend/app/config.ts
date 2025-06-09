@@ -7,5 +7,7 @@ export const API_CONFIG = {
 } as const;
 
 export const getApiUrl = (endpoint: keyof typeof API_CONFIG.endpoints) => {
-  return `${API_CONFIG.baseUrl}${API_CONFIG.endpoints[endpoint]}`;
+  const url = `${API_CONFIG.baseUrl}${API_CONFIG.endpoints[endpoint]}`;
+  console.log('Constructed API URL:', url);
+  return url;
 }; 
