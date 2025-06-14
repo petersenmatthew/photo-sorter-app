@@ -162,7 +162,7 @@ export default function Home() {
         {currentStep === 'reference' && (
           <div className="bg-white p-8 rounded-lg shadow-sm">
             <h2 className="text-2xl font-semibold mb-4">Step 1: Upload Reference Faces</h2>
-            <p className="text-gray-600 mb-6">Upload clear photos of the faces you want to sort by.</p>
+            <p className="text-gray-600 mb-6">Upload clear photos of the faces you want to sort by, or skip this step to sort without reference faces.</p>
             <form onSubmit={handleReferenceSubmit} className="space-y-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -172,22 +172,30 @@ export default function Home() {
                   type="file" 
                   id="ref" 
                   multiple 
-                  required 
                   className="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                   accept="image/*"
                 />
               </div>
-              <button 
-                type="submit" 
-                disabled={isLoading}
-                className={`w-full py-3 px-4 rounded-md text-white font-medium ${
-                  isLoading 
-                    ? 'bg-gray-400 cursor-not-allowed' 
-                    : 'bg-blue-600 hover:bg-blue-700'
-                }`}
-              >
-                {isLoading ? 'Processing...' : 'Upload Reference Faces'}
-              </button>
+              <div className="flex gap-4">
+                <button 
+                  type="submit" 
+                  disabled={isLoading}
+                  className={`flex-1 py-3 px-4 rounded-md text-white font-medium ${
+                    isLoading 
+                      ? 'bg-gray-400 cursor-not-allowed' 
+                      : 'bg-blue-600 hover:bg-blue-700'
+                  }`}
+                >
+                  {isLoading ? 'Processing...' : 'Upload Reference Faces'}
+                </button>
+                <button 
+                  type="button"
+                  onClick={() => setCurrentStep('group')}
+                  className="flex-1 py-3 px-4 rounded-md text-gray-700 font-medium bg-gray-100 hover:bg-gray-200"
+                >
+                  Skip This Step
+                </button>
+              </div>
             </form>
           </div>
         )}
